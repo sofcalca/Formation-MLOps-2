@@ -26,7 +26,16 @@ dependences:
 dependences-de-test:
 	$(MAKE) dependences && pip install -r requirements_test.txt && pip install -e .
 
+.PHONY: lint  ## 📏 vérifier le format du code
+lint:
+	flake8 formation_indus_ds_avancee
+
+.PHONY: dead-code  ## 💀 detect dead code
+dead-code:
+	vulture formation_indus_ds_avancee scripts --min-confidence 100
+
 .PHONY: tests  ## ✅ lance tous les tests
+
 tests:
 	$(MAKE) tests-unitaires && $(MAKE) tests-fonctionnels
 
