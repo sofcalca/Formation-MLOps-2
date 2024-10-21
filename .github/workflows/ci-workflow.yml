@@ -24,6 +24,6 @@ jobs:
       - name: Run Vulture
         run:  make dead-code
       - name: Run tests
-        run:  make tests
+        run:  tests-unitaires
 
 
