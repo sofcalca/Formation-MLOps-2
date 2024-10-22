@@ -38,6 +38,10 @@ tests-unitaires:
 tests-fonctionnels:
 	python -m behave tests/test_functional/features
 
+.PHONY: coverage  ## 🧪 calcule la couverture des tests
+coverage:
+	python -m pytest --cov=formation_indus_ds_avancee/ -vv -p no:warnings
+
 .PHONY: distribution  ## 📦 crée le package au format wheel
 distribution:
 	python3 setup.py sdist bdist_wheel
